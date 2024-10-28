@@ -1,0 +1,65 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-image: url("https://vastphotos.com/files/uploads/photos/11653/high-resolution-maui-beach-photo-m.jpg?v=20230915133842");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 600px;
+  }
+  
+  .box {
+    background-color: white;
+    margin: 100px auto;
+    padding: 20px;
+    border-radius: 10px;
+    width: 400px;
+    height: 400px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-height: 400px; 
+    overflow-y: auto;
+  }
+  
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  input[type="text"] {
+    width: 200px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+  
+  button {
+    padding: 10px 15px;
+    background-color: #5cb85c;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #4cae4c;
+  }
+  
+  li {
+    text-align: left;
+    margin: 20px 10px;
+    font-size: 20px;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+  
+  input[type="checkbox"] {
+    margin-right: 10px;
+  }
+
+
+img{
+  width: 100px;
+  height: 200px;
+}
+  
