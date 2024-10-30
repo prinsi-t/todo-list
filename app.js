@@ -26,7 +26,8 @@ mongoose.connect(process.env.MONGO_URI, {
 
 // Schema and Model
 const todoSchema = new mongoose.Schema({
-  name: String
+  name: String,
+  completed: { type: Boolean, default: false }
 });
 
 const Todo = mongoose.model("Todo", todoSchema);
@@ -52,6 +53,7 @@ app.get("/", async (req, res) => {
     const todoName = req.body.newTodo;
     const newTodo = new Todo({
       name: todoName,
+      completed: false
     });
   
     try {
@@ -62,14 +64,29 @@ app.get("/", async (req, res) => {
       res.status(500).send("Error saving new todo.");
     }
   });
-  
+
+  app.post('/complete', async (req, res) => {
+    const todoId = req.body.checkbox;
+    try {
+        const todo = await Todo.findById(todoId);
+        if (todo) {
+            todo.completed = !todo.completed; // Toggle the completed status
+            await todo.save();
+            console.log(todo)
+        }
+        res.redirect('/');
+    } catch (error) {
+        console.log("Error toggling todo:", error);
+        res.status(500).send("Error toggling todo.");
+    }
+});
 
   app.post("/delete", async (req, res) => { 
     const checkedTodoId = req.body.checkbox;
     
     try {
       await Todo.findByIdAndDelete(checkedTodoId);
-      console.log("Successfully deleted checked item.");
+      //console.log("Successfully deleted checked item.");
       res.redirect("/");
     } catch (err) {
       console.log(err);
