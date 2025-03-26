@@ -1,0 +1,41 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>To-Do List</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="favicon.ico">
+  <link rel="manifest" href="/site.webmanifest">
+</head>
+
+
+<body>
+  <div class="box">
+    <h1>To-Do List</h1>
+    <form action="/" method="POST">
+      <input type="text" name="newTodo" placeholder="New Task" autocomplete="off" required>
+      <button type="submit">Add</button>
+    </form>
+   
+    
+    <ul>
+      <% todos.forEach(function(todo) { %>
+        <li class="<%= todo.completed ? 'completed' : '' %>">
+          <form action="/complete" method="POST" style="display: inline;">
+            <input type="checkbox" name="checkbox" value="<%= todo._id %>" 
+            <%= todo.completed ? 'checked' : 'unchecked' %> onchange="this.form.submit()">
+        </form>
+            <span><%= todo.name %></span> 
+          <form action="/delete" method="POST" style="display: inline;">
+           <input type="hidden" name="checkbox" value="<%= todo._id %>">
+             <button type="submit">Delete</button>
+          </form>
+          
+          
+        </li>
+      <% }); %>
+    </ul>
+  </div>
+</body>
+</html> -->
